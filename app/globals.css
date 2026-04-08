@@ -1,26 +1,70 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Futuretail Design Tokens ── */
+:root,
+[data-theme="light"] {
+  /* Brand colors */
+  --primary: #6955dc; /* Primary */
+  --primary-dark: #3c25b7; /* Primary_dark */
+  --primary-light: #f1effc; /* Primary_light */
+  --accent: oklch(from #6955dc l c h); /* HeroUI accent → primary */
+
+  /* Text */
+  --foreground: #0f0a2e; /* Primary_text */
+  --muted: #6b7280; /* Secondary_text */
+
+  /* Surfaces & borders */
+  --background: #f1effc; /* Primary_light as page bg */
+  --surface: #ffffff; /* White — cards, panels */
+  --border: #e5e7eb; /* Stroke_light */
+
+  /* Semantic */
+  --success: #34c759; /* Green */
+
+  /* Radius — matching Figma rounded corners */
+  --radius: 0.75rem;
 }
 
+/* ── Dark theme ── */
+.dark,
+[data-theme="dark"] {
+  --primary: #6955dc;
+  --primary-dark: #3c25b7;
+  --primary-light: #1e1a3a;
+
+  --foreground: #f1effc;
+  --muted: #9ca3af;
+
+  --background: #0f0a2e;
+  --surface: #1a1440;
+  --border: #2d2860;
+
+  --success: #34c759;
+}
+
+/* ── Make custom colors available as Tailwind utilities ── */
 @theme inline {
-  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-success: var(--success);
+  --color-white: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Typography ── */
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
+/* ── Base ── */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }

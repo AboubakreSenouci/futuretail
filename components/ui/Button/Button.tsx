@@ -14,13 +14,13 @@ const buttonVariants = cva(
         primary: [
           "bg-gradient-to-r from-[#715DE3] to-[#8A6FE8] text-white",
           "hover:from-[#6D55F5] hover:to-[#927CF8]",
-          "rounded-xl px-4",
+          "rounded-[8px] px-4",
         ],
         // Nav item — transparent, full width, left-aligned
         link: [
           "bg-transparent text-foreground",
           "hover:bg-primary-light hover:text-primary",
-          "rounded-xl px-3",
+          "rounded-[8px] px-3",
           "justify-start w-full",
         ],
         // Filter chip — "Clear Results ×"

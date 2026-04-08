@@ -3,7 +3,7 @@
 import { PanelLeft, MessageCirclePlus } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "./Navlink";
-import Logo from "@/public/images/Logo.svg";
+import Logo from "@/public/images/logo.png";
 import Image from "next/image";
 import { UserProfileDropdown } from "../ui/UserProfileDropDown/UserProfilDropDown";
 import Avatar from "@/public/images/avatar.svg";
@@ -11,12 +11,12 @@ import { NAV_ITEMS } from "@/constants/NavItem";
 
 export function Sidebar() {
   return (
-    <aside className="fixed top-0 left-0 h-screen w-60 bg-white border-r border-border flex flex-col z-30">
+    <aside className="fixed top-0 left-0 h-screen w-60 pt-[9px] bg-white border-r border-border flex flex-col z-30">
       {/* Logo row */}
-      <div className="flex items-center justify-between pt-4 px-2">
-        <Image src={Logo} alt="Logo" />
+      <div className="flex items-center justify-between px-2">
+        <Image src={Logo} alt="Logo" width={70} height={70} />
 
-        <button className="w-7 h-7 mb-4">
+        <button className="w-7 h-7">
           <PanelLeft
             width={"20px"}
             height={"20px"}

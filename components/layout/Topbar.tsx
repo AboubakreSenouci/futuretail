@@ -1,27 +1,40 @@
 "use client";
 
-import { BookOpen, Sparkles } from "lucide-react";
+import { Database, Sparkles } from "lucide-react";
+import { Typography } from "../ui/Typography/Typography";
+import { Badge } from "@heroui/react";
+import { Button } from "../ui/Button";
 
 export function Topbar() {
   return (
-    <header className="fixed top-0 left-[224px] right-0 h-[56px] bg-white border-b border-border flex items-center justify-end px-6 gap-3 z-20">
-      {/* Knowledge Base */}
-      <button className="flex items-center gap-2 px-3 h-9 rounded-xl border border-border text-sm font-medium text-foreground hover:bg-primary-light hover:border-primary/30 hover:text-primary transition-all">
-        <BookOpen size={15} className="text-muted" />
-        <span>Knowledge Base</span>
-        {/* notification dot */}
-        <span className="w-1.5 h-1.5 rounded-full bg-primary ml-0.5" />
-      </button>
+    <header className="fixed top-0 left-[224px] right-0 bg-white border-b border-border flex items-center justify-end py-4 px-6 gap-3 z-20">
+      <Badge.Anchor>
+        <Button
+          variant="primary"
+          className="py-4 border border-border bg-white hover:bg-primary-light hover:border-primary/30 hover:text-primary transition-all text-foreground"
+          size="sm"
+        >
+          <Database size={15} />
+          <Typography variant="medium_14">Knowledge Base</Typography>
+          <Badge
+            color="success"
+            className="w-2.5 h-2.5 min-h-0 min-w-0 p-0 rounded-full"
+          />
+        </Button>
+      </Badge.Anchor>
 
-      {/* Aura Tips */}
-      <button className="flex items-center gap-2 px-3 h-9 rounded-xl border border-primary/40 bg-primary-light text-sm font-medium text-primary hover:bg-primary hover:text-white transition-all relative">
-        <Sparkles size={15} />
-        <span>Aura Tips</span>
-        {/* red badge */}
-        <span className="absolute -top-1.5 -right-1.5 w-4 h-4 rounded-full bg-red-500 text-white text-[10px] font-bold flex items-center justify-center">
-          1
-        </span>
-      </button>
+      <Badge.Anchor>
+        <Button
+          variant="primary"
+          className="bg-primary-light text-primary hover:bg-primary hover:text-white border border-primary/40"
+        >
+          <Sparkles size={15} />
+          <Typography variant="medium_14">Aura Tips</Typography>
+          <Badge color="danger" size="sm">
+            6
+          </Badge>
+        </Button>
+      </Badge.Anchor>
     </header>
   );
 }

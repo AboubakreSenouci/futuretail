@@ -14,7 +14,7 @@ export function TrendSearchResults() {
           key={product.id}
           {...product}
           image={product.image}
-          handleCardClick={() => router.push(`/deep-dive/${product.id}`)}
+          handleCardClick={() => router.push(`trend-search/deep-dive/${product.id}`)}
         />
       ))}
     </div>

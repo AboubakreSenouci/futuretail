@@ -3,17 +3,21 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import { Button } from "../Button";
+import Image from "next/image";
+import { Typography } from "../Typography/Typography";
 
 interface UserProfileDropdownProps {
   name: string;
   image?: string;
   initials?: string;
+  isCollapsed?: boolean;
 }
 
 export function UserProfileDropdown({
   name,
   image,
   initials,
+  isCollapsed = false,
 }: UserProfileDropdownProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -29,15 +33,18 @@ export function UserProfileDropdown({
   }, []);
 
   return (
-    <div ref={ref} className="relative px-3 pb-4 pt-2 border-t border-border">
+    <div ref={ref} className={`relative ${!isCollapsed && "p-2"}`}>
       {/* Trigger */}
       <div
-        onClick={() => setOpen(!open)}
-        className="flex items-center justify-between gap-2 px-2 py-2 rounded-xl hover:bg-primary-light/50 cursor-pointer transition-colors group"
+        onClick={() => !isCollapsed && setOpen(!open)}
+        className={`flex items-center justify-between gap-2 p-2 rounded-xl hover:bg-primary-light/50 cursor-pointer transition-colors group ${
+          isCollapsed ? "justify-center " : ""
+        }`}
+        title={isCollapsed ? name : undefined}
       >
         <div className="flex items-center gap-2">
           {image ? (
-            <img
+            <Image
               src={image}
               alt={name}
               className="w-8 h-8 rounded-full object-cover shrink-0"
@@ -48,32 +55,36 @@ export function UserProfileDropdown({
             </div>
           )}
 
-          <span className="text-sm font-medium text-foreground truncate">
-            {name}
-          </span>
+          {!isCollapsed && (
+            <Typography variant="regular_12" className="text-foreground">
+              {name}
+            </Typography>
+          )}
         </div>
 
-        <ChevronDown
-          size={14}
-          className={`transition-transform ${
-            open ? "rotate-180" : ""
-          } text-muted group-hover:text-primary`}
-        />
+        {!isCollapsed && (
+          <ChevronDown
+            size={14}
+            className={`transition-transform ${open ? "rotate-180" : ""} text-muted group-hover:text-primary`}
+          />
+        )}
       </div>
 
       {/* Dropdown */}
-      {open && (
-        <div className="absolute bottom-full mb-2 w-full bg-background border border-border rounded-xl shadow-lg p-1">
-          {/* <button className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-primary-light/50">
+      {!isCollapsed && open && (
+        <div className="absolute bottom-full mb-2 w-full bg-white border border-border rounded-xl shadow-lg p-1">
+          <Button variant="link" className="w-full text-left px-3 py-2 text-sm">
             Profile
-          </button> */}
-          <Button variant="link">Profile</Button>
-          <button className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-primary-light/50">
+          </Button>
+          <Button variant="link" className="w-full text-left px-3 py-2 text-sm">
             Settings
-          </button>
-          <button className="w-full text-left px-3 py-2 text-sm rounded-lg hover:bg-primary-light/50 text-red-500">
+          </Button>
+          <Button
+            variant="link"
+            className="w-full text-left px-3 py-2 text-sm text-danger hover:text-danger"
+          >
             Logout
-          </button>
+          </Button>
         </div>
       )}
     </div>

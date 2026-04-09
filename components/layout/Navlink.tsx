@@ -14,7 +14,12 @@ export interface NavItem {
   children?: { label: string; href: string }[];
 }
 
-export function NavLink({ item }: { item: NavItem }) {
+interface NavLinkProps {
+  item: NavItem;
+  isCollapsed?: boolean;
+}
+
+export function NavLink({ item, isCollapsed = false }: NavLinkProps) {
   const pathname = usePathname();
   const isActive = pathname.startsWith(item.href);
   const hasChildren = !!item.children?.length;
@@ -27,28 +32,29 @@ export function NavLink({ item }: { item: NavItem }) {
         size="md"
         isActive={isActive}
         leftIcon={item.icon}
-        className="rounded-[8px]"
+        className="rounded-[8px] w-full flex justify-start gap-2"
         rightIcon={
-          hasChildren ? (
+          !isCollapsed && hasChildren ? (
             <span className="text-muted">
               {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
             </span>
           ) : undefined
         }
         onClick={
-          hasChildren
+          hasChildren && !isCollapsed
             ? (e) => {
                 e.preventDefault();
                 setOpen((o) => !o);
               }
             : undefined
         }
-        {...(!hasChildren ? { as: Link, href: item.href } : {})}
+        {...(!hasChildren && !isCollapsed ? { as: Link, href: item.href } : {})}
       >
-        <Typography variant="regular_14">{item.label}</Typography>
+        {!isCollapsed && <Typography variant="regular_14">{item.label}</Typography>}
       </Button>
 
-      {hasChildren && open && (
+      {/* Children links */}
+      {hasChildren && open && !isCollapsed && (
         <div className="ml-8 mt-1 flex flex-col gap-0.5">
           {item.children!.map((child) => (
             <Button

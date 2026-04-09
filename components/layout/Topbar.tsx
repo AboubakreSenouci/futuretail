@@ -7,7 +7,7 @@ import { Button } from "../ui/Button";
 
 export function Topbar() {
   return (
-    <header className="fixed h-[65px] left-60 right-0 bg-white flex items-center justify-end py-4 px-6 gap-3 z-20">
+    <header className="fixed h-[65px] w-full right-0 bg-white flex items-center justify-end py-4 px-6 gap-3 z-20">
       <Badge.Anchor>
         <Button
           variant="primary"

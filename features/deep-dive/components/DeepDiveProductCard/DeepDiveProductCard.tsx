@@ -27,7 +27,7 @@ export function DeepDiveProductCard({
 }: DeepDiveProductCardProps) {
   return (
     <div
-      className="w-full flex flex-col group cursor-pointer min-w-[200px] max-w-[250px]"
+      className="w-full min-w-51 flex flex-col group cursor-pointer max-w-[250px]"
       onClick={handleCardClick}
     >
       {/* Image */}
@@ -63,9 +63,14 @@ export function DeepDiveProductCard({
         </div>
         <div className="flex items-center justify-between">
           {matchPercentage !== undefined && (
-            <Typography variant="medium_8" className="text-muted">
-              Match: {matchPercentage}%
-            </Typography>
+            <div className="flex items-center justify-between w-full">
+              <Typography variant="medium_8" className="text-muted">
+                Match: {matchPercentage}%
+              </Typography>
+              <Typography variant="medium_8" className="text-success">
+                5% Cheaper than main product
+              </Typography>
+            </div>
           )}
         </div>
       </div>

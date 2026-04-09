@@ -1,162 +1,66 @@
 "use client";
 
-import { Button } from "@/components/ui/Button";
-import { Typography } from "@/components/ui/Typography/Typography";
-import {
-  ArrowLeft,
-  Award,
-  ClipboardCheck,
-  TrendingUp,
-  Users,
-} from "lucide-react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
 import image from "@/public/images/image4.png";
 import DeepDiveResults from "@/features/deep-dive/components/DeepDiveResults/DeepDiveResults";
-import { Chip } from "@heroui/react";
+import DeepDiveHeader from "@/features/deep-dive/components/DeepDiveHeader/DeepDiveHeader";
+import ProductImage from "@/features/deep-dive/components/ProductImage/ProductImage";
+import ProductInfo from "@/features/deep-dive/components/ProductInfo/ProductInfo";
+import ProductStats from "@/features/deep-dive/components/ProductStats/ProductStats";
+import MarketPricePosition from "@/features/deep-dive/components/MarketPricePosition/MarketPricePosition";
+import AuraInsights from "@/features/deep-dive/Aurainsights/Aurainsights";
 
 function DeepDive() {
-  const router = useRouter();
-
-  const handleBackClick = () => {
-    router.back();
-  };
-
   return (
     <div className="bg-white">
-      <div className="flex flex-row py-6 gap-4 px-8 items-center border-b border-border">
-        <Button
-          iconOnly
-          className="bg-white text-[#2D2D3D]"
-          onClick={handleBackClick}
-        >
-          <ArrowLeft size={16} />
-        </Button>
+      <DeepDiveHeader />
 
-        <div className="flex flex-col gap-1">
-          <Typography variant="semibold_24" className="text-foreground">
-            Deep Dive
-          </Typography>
-          <Typography variant="regular_14" className="text-muted">
-            Find fashion apparel with text, object detection and reverse image
-            search
-          </Typography>
-        </div>
-      </div>
       <div className="flex flex-row pt-8 pl-8 gap-12">
         <div className="flex flex-col gap-6">
-          <Image
-            src={image}
-            alt="Deep Dive"
-            className="object-cover w-full min-h-145.5 max-h-160 rounded-[32px] transition-transform duration-500 ease-in-out group-hover:scale-110"
+          <ProductImage src={image} alt="Deep Dive" />
+
+          <ProductInfo
+            name="Neon Yellow Summer Dress"
+            brand="ZARA"
+            price="€71.23"
+            status="In Stock"
+            tags={["Women's Fashion", "Summer Dress"]}
+            sku="ZR-SUM-2024-001"
+            updatedAt="Mar 11, 2026"
           />
-          <div className="flex flex-col bg-white border border-border rounded-[16px] p-4 gap-4">
-            <div className="flex flex-row justify-between w-full items-center">
-              <div>
-                <Typography variant="semibold_24" className="text-foreground">
-                  Neon Yellow Summer Dress
-                </Typography>
-                <Typography variant="regular_14" className="text-muted">
-                  ZARA
-                </Typography>
-              </div>
-              <div>
-                <Typography variant="semibold_24" className="text-foreground">
-                  €71.23
-                </Typography>
-              </div>
-            </div>
-            <div>
-              <Chip className="bg-[#ECFDF5] px-2.5 py-1 gap-2">
-                <Typography variant="regular_14" className="text-[#007A55]">
-                  In Stock
-                </Typography>
-              </Chip>
 
-              <Chip className="bg-[#F3F4F6] px-2.5 py-1">
-                <Typography variant="regular_14" className="text-[#364153]">
-                  Women's Fashion
-                </Typography>
-              </Chip>
+          <ProductStats
+            popularity={68}
+            matchScore={97}
+            reviews={324}
+            ranking={2}
+            rankingTotal={12}
+          />
 
-              <Chip className="bg-[#F3F4F6] px-2.5 py-1">
-                <Typography variant="regular_14" className="text-[#364153]">
-                  Summer Dress
-                </Typography>
-              </Chip>
-            </div>
-            <Typography variant="regular_12" className="text-muted">
-              SKU: ZR-SUM-2024-001 • Updated: Mar 11, 2026
-            </Typography>
-          </div>
-          <div className=" flex flex-col gap-3">
-            <div className="grid grid-cols-2 gap-3 grid-rows-[auto]">
-              <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
-                <div className="flex items-center gap-2">
-                  <Users size={16} className="text-[#794BE7]" />
-                  <Typography variant="regular_14" className="text-[#6A7282]">
-                    Popularity
-                  </Typography>
-                </div>
-
-                <div className="flex items-center gap-0.5">
-                  <Typography variant="semibold_24" className="text-[#101828]">
-                    68
-                  </Typography>
-                  <Typography variant="regular_14" className="text-[#99A1AF]">
-                    /100
-                  </Typography>
-                </div>
-              </div>
-
-              <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
-                <div className="flex items-center gap-2">
-                  <Award size={16} className="text-[#2B7FFF]" />
-                  <Typography variant="regular_14" className="text-[#6A7282]">
-                    Match Score
-                  </Typography>
-                </div>
-
-                <Typography variant="semibold_24" className="text-[#101828]">
-                  97%
-                </Typography>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 grid-rows-[auto]">
-              <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
-                <div className="flex items-center gap-2">
-                  <ClipboardCheck size={16} className="text-[#00BC7D]" />
-                  <Typography variant="regular_14" className="text-[#6A7282]">
-                    Reviews
-                  </Typography>
-                </div>
-
-                <Typography variant="semibold_24" className="text-[#101828]">
-                  324
-                </Typography>
-              </div>
-
-              <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
-                <div className="flex items-center gap-2">
-                  <TrendingUp size={16} className="text-[#FE9A00]" />
-                  <Typography variant="regular_14" className="text-[#6A7282]">
-                    Ranking
-                  </Typography>
-                </div>
-
-                <div className="flex items-center gap-0.5">
-                  <Typography variant="semibold_24" className="text-[#101828]">
-                    #2
-                  </Typography>
-                  <Typography variant="regular_14" className="text-[#99A1AF]">
-                    /12
-                  </Typography>
-                </div>
-              </div>
-            </div>
-          </div>
+          <MarketPricePosition
+            lowest={29.99}
+            median={55}
+            highest={125}
+            current={71.23}
+            currency="€"
+          />
+          <AuraInsights
+            insights={[
+              {
+                dotColor: "#007A55",
+                bgColor: "#ECFDF5",
+                text: "This product is priced below the market average.",
+              },
+              {
+                dotColor: "#EF4444",
+                bgColor: "#FEE2E2",
+                text: "There are several premium options available in the market.",
+              },
+            ]}
+            cheaperOptions={12}
+            premiumOptions={8}
+          />
         </div>
+
         <DeepDiveResults />
       </div>
     </div>

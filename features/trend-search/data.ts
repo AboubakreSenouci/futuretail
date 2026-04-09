@@ -19,6 +19,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "High Demand",
     image: image1,
+    demand: "high",
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "Medium Demand",
     image: image2,
+    demand: "medium",
   },
   {
     id: 3,
@@ -43,6 +45,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "Low Demand",
     image: image3,
+    demand: "low",
   },
   {
     id: 4,
@@ -54,7 +57,8 @@ export const trendingProducts = [
     isHighDemand: true,
     isTrending: false,
     demandLabel: "High Demand",
-    image: image4, // 👈 add your image here
+    image: image4,
+    demand: "high",
   },
   {
     id: 5,
@@ -66,7 +70,8 @@ export const trendingProducts = [
     isHighDemand: false,
     isTrending: false,
     demandLabel: "Medium Demand",
-    image: image5, // 👈 add your image here
+    image: image5,
+    demand: "medium",
   },
   {
     id: 6,
@@ -78,7 +83,8 @@ export const trendingProducts = [
     isHighDemand: false,
     isTrending: false,
     demandLabel: "Medium Demand",
-    image: image6, // 👈 add your image here
+    image: image6,
+    demand: "medium",
   },
   {
     id: 7,
@@ -90,7 +96,8 @@ export const trendingProducts = [
     isHighDemand: true,
     isTrending: false,
     demandLabel: "High Demand",
-    image: image7, // 👈 add your image here
+    image: image7,
+    demand: "high",
   },
   {
     id: 8,
@@ -102,6 +109,7 @@ export const trendingProducts = [
     isHighDemand: false,
     isTrending: false,
     demandLabel: "Low Demand",
-    image: image8, // 👈 add your image here
+    image: image8,
+    demand: "low",
   },
 ];

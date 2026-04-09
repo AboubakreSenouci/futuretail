@@ -1,10 +1,41 @@
 "use client";
 
 import { Chip } from "@heroui/react";
-import { Search, Heart, Spool, MessageCirclePlus } from "lucide-react";
+import {
+  Search,
+  Heart,
+  Spool,
+  MessageCirclePlus,
+  TrendingUp,
+  TrendingDown,
+  MoveRight,
+} from "lucide-react";
 import Image from "next/image";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Button } from "@/components/ui/Button";
+
+type DemandLevel = "low" | "medium" | "high";
+
+const demandConfig: Record<
+  DemandLevel,
+  { label: string; color: string; icon: React.ReactNode }
+> = {
+  low: {
+    label: "Low Demand",
+    color: "text-[#FF3B30]",
+    icon: <TrendingDown size={10} className="text-[#FF3B30]" />,
+  },
+  medium: {
+    label: "Medium Demand",
+    color: "text-[#FF9500]",
+    icon: <MoveRight size={10} className="text-[#FF9500]" />,
+  },
+  high: {
+    label: "High Demand",
+    color: "text-[#34C759]",
+    icon: <TrendingUp size={10} className="text-[#34C759]" />,
+  },
+};
 
 interface TrendProductCardProps {
   image: string;
@@ -13,7 +44,7 @@ interface TrendProductCardProps {
   price: number;
   currency?: string;
   matchPercentage?: number;
-  isHighDemand?: boolean;
+  demand?: DemandLevel;
   isTrending?: boolean;
   onSearch?: () => void;
   onLike?: () => void;
@@ -28,13 +59,15 @@ export function TrendProductCard({
   price,
   currency = "€",
   matchPercentage,
-  isHighDemand = false,
+  demand,
   isTrending = false,
   onSearch,
   onLike,
   onSpool,
   onComment,
 }: TrendProductCardProps) {
+  const demandInfo = demand ? demandConfig[demand] : null;
+
   return (
     <div className="w-67 flex flex-col group cursor-pointer">
       <div className="h-88.75 relative overflow-hidden rounded-[12px]">
@@ -106,10 +139,13 @@ export function TrendProductCard({
               Match: {matchPercentage}%
             </Typography>
           )}
-          {isHighDemand && (
-            <Typography variant="medium_8" className="text-[#34C759]">
-              High Demand
-            </Typography>
+          {demandInfo && (
+            <div className="flex items-center gap-0.5">
+              {demandInfo.icon}
+              <Typography variant="medium_8" className={demandInfo.color}>
+                {demandInfo.label}
+              </Typography>
+            </div>
           )}
         </div>
       </div>

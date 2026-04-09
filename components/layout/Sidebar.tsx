@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react"; // ✅ add these
 import { MessageCirclePlus, PanelLeft, X } from "lucide-react";
 import Image from "next/image";
 
@@ -23,10 +24,21 @@ export function Sidebar({
   onDesktopToggle,
   onMobileClose,
 }: SidebarProps) {
+  // ✅ Disable transition on first render to prevent flash
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    // Small timeout ensures the correct state is applied before enabling transitions
+    const timer = setTimeout(() => setIsMounted(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <div
-        className={`fixed inset-0 z-30 bg-foreground/20 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-30 bg-foreground/20 md:hidden ${
+          isMounted ? "transition-opacity duration-300" : "" // ✅ no transition on first render
+        } ${
           isMobileOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -35,12 +47,13 @@ export function Sidebar({
       />
 
       <aside
-        className={`fixed top-0 left-0 z-40 flex h-screen max-w-[calc(100vw-1rem)] flex-col border-r border-border bg-white transition-all duration-300 ease-in-out md:z-30 ${
-          isDesktopOpen ? "md:w-60" : "md:w-16"
-        } ${
+        className={`fixed top-0 left-0 z-40 flex h-screen max-w-[calc(100vw-1rem)] flex-col border-r border-border bg-white md:z-30 ${
+          isMounted ? "transition-all duration-300 ease-in-out" : "" // ✅ key fix
+        } ${isDesktopOpen ? "md:w-60" : "md:w-16"} ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         } w-72 md:translate-x-0`}
       >
+        {/* rest stays exactly the same */}
         <div className="flex items-center justify-between px-2 py-2">
           <div className="flex items-center gap-2 overflow-hidden">
             <Image src={Logo} alt="Logo" width={70} height={70} />
@@ -49,9 +62,7 @@ export function Sidebar({
           <Button
             onClick={onDesktopToggle}
             className="hidden h-8 w-8 items-center justify-center rounded-md bg-white md:inline-flex"
-            aria-label={
-              isDesktopOpen ? "Collapse sidebar" : "Expand sidebar"
-            }
+            aria-label={isDesktopOpen ? "Collapse sidebar" : "Expand sidebar"}
             iconOnly
           >
             <PanelLeft size={20} className="text-muted" />
@@ -93,7 +104,11 @@ export function Sidebar({
             }
             iconOnly={!isDesktopOpen && !isMobileOpen}
           >
-            {isDesktopOpen || isMobileOpen ? "New Chat" : <MessageCirclePlus size={20} />}
+            {isDesktopOpen || isMobileOpen ? (
+              "New Chat"
+            ) : (
+              <MessageCirclePlus size={20} />
+            )}
           </Button>
         </div>
 

@@ -35,6 +35,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={openSauceTwo.variable}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var saved = localStorage.getItem('futuretail:desktop-sidebar-open');
+                var isOpen = saved === null ? true : saved === 'true';
+                document.documentElement.setAttribute('data-sidebar', isOpen ? 'open' : 'closed');
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );

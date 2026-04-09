@@ -11,7 +11,7 @@ import { NAV_ITEMS } from "@/constants/NavItem";
 
 export function Sidebar() {
   return (
-    <aside className="fixed top-0 left-0 h-screen w-60 pt-[9px] bg-white border-r border-border flex flex-col z-30">
+    <aside className="fixed top-0 left-0 h-screen min-w-60 pt-[6px] bg-white border-r border-border flex flex-col z-30">
       {/* Logo row */}
       <div className="flex items-center justify-between px-2">
         <Image src={Logo} alt="Logo" width={70} height={70} />
@@ -26,11 +26,11 @@ export function Sidebar() {
       </div>
 
       {/* New Chat */}
-      <div className="px-3 pb-2">
+      <div className="px-3 py-2">
         <Button
           variant="primary"
           size="lg"
-          className="w-full justify-between"
+          className="w-full rounded-[14px] justify-between"
           leftIcon={<MessageCirclePlus size={20} />}
           rightIcon={
             <div className="flex gap-1 items-center">

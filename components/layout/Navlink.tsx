@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Typography } from "../ui/Typography/Typography";
 
 export interface NavItem {
   label: string;
@@ -44,7 +45,7 @@ export function NavLink({ item }: { item: NavItem }) {
         }
         {...(!hasChildren ? { as: Link, href: item.href } : {})}
       >
-        {item.label}
+        <Typography variant="regular_14">{item.label}</Typography>
       </Button>
 
       {hasChildren && open && (
@@ -59,7 +60,7 @@ export function NavLink({ item }: { item: NavItem }) {
               href={child.href}
               className="rounded-[8px]"
             >
-              {child.label}
+              <Typography variant="regular_14">{child.label}</Typography>
             </Button>
           ))}
         </div>

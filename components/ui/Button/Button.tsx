@@ -10,36 +10,52 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // "New Chat" — purple bg, white text
         primary: [
           "bg-gradient-to-r from-[#715DE3] to-[#8A6FE8] text-white",
           "hover:from-[#6D55F5] hover:to-[#927CF8]",
           "rounded-[8px] px-4",
         ],
-        // Nav item — transparent, full width, left-aligned
         link: [
           "bg-transparent text-foreground",
           "hover:bg-primary-light hover:text-primary",
           "rounded-[8px] px-3",
           "justify-start w-full",
         ],
-        // Filter chip — "Clear Results ×"
         chip: [
           "bg-primary-light text-primary",
           "hover:bg-primary/10",
           "rounded-lg px-3",
           "border border-primary/20",
         ],
+        ghost: [
+          "bg-transparent text-foreground",
+          "hover:bg-primary-light hover:text-primary",
+          "rounded-[8px]",
+        ],
+        outline: [
+          "bg-transparent border border-border text-foreground",
+          "hover:bg-primary-light hover:text-primary hover:border-primary/30",
+          "rounded-[8px]",
+        ],
       },
 
       size: {
         sm: "h-8 text-xs px-3",
-        md: "h-10 text-sm px-4", // 40px — nav items
-        lg: "h-[46px] text-sm px-5", // 46px — New Chat
+        md: "h-10 text-sm px-4",
+        lg: "h-[46px] text-sm px-5",
+        // icon-only sizes — no px, equal w/h
+        icon_sm: "h-7 w-7 p-0 text-xs",
+        icon_md: "h-9 w-9 p-0 text-sm",
+        icon_lg: "h-11 w-11 p-0 text-base",
       },
 
       isActive: {
         true: "",
+        false: "",
+      },
+
+      iconOnly: {
+        true: "p-0 aspect-square",
         false: "",
       },
     },
@@ -61,6 +77,7 @@ const buttonVariants = cva(
       variant: "primary",
       size: "md",
       isActive: false,
+      iconOnly: false,
     },
   },
 );
@@ -73,7 +90,9 @@ export interface ButtonProps
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   isActive?: boolean;
-  /** Render as a different element, e.g. Next.js Link */
+  iconOnly?: boolean;
+  /** Single icon to render when iconOnly=true */
+  icon?: React.ReactNode;
   as?: React.ElementType;
   href?: string;
 }
@@ -84,6 +103,8 @@ export function Button({
   variant,
   size,
   isActive,
+  iconOnly,
+  icon,
   leftIcon,
   rightIcon,
   children,
@@ -91,8 +112,26 @@ export function Button({
   href,
   ...props
 }: ButtonProps) {
-  const classes = cn(buttonVariants({ variant, size, isActive }), className);
+  const classes = cn(
+    buttonVariants({ variant, size, isActive, iconOnly }),
+    className,
+  );
 
+  // Icon-only mode
+  if (iconOnly) {
+    return (
+      <HeroButton
+        as={Tag || "button"}
+        href={href}
+        className={classes}
+        {...props}
+      >
+        {icon ?? children}
+      </HeroButton>
+    );
+  }
+
+  // Normal mode
   return (
     <HeroButton as={Tag || "button"} href={href} className={classes} {...props}>
       <div className="flex items-center justify-between w-full">
@@ -100,7 +139,6 @@ export function Button({
           {leftIcon && <span className="shrink-0">{leftIcon}</span>}
           {children}
         </div>
-
         {rightIcon && <span className="shrink-0">{rightIcon}</span>}
       </div>
     </HeroButton>

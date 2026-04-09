@@ -7,11 +7,11 @@ import { Button } from "../ui/Button";
 
 export function Topbar() {
   return (
-    <header className="fixed top-0 left-[224px] right-0 bg-white border-b border-border flex items-center justify-end py-4 px-6 gap-3 z-20">
+    <header className="fixed min-h-[65px] top-0 left-60 right-0 bg-white border-b border-border flex items-center justify-end py-4 px-6 gap-3 z-20">
       <Badge.Anchor>
         <Button
           variant="primary"
-          className="py-4 border border-border bg-white hover:bg-primary-light hover:border-primary/30 hover:text-primary transition-all text-foreground"
+          className="py-4 border border-border bg-white hover:bg-primary-light hover:border-primary/30 hover:text-primary transition-all text-foreground border border-primary/40"
           size="sm"
         >
           <Database size={15} />

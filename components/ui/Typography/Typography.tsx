@@ -1,26 +1,23 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
-const typographyVariants = cva(
-  "font-['Open_Sauce_Two'] tracking-normal align-middle",
-  {
-    variants: {
-      variant: {
-        regular_14: "font-normal text-[14px] leading-[20px]",
-        semibold_24: "font-semibold text-[24px] leading-[28px]",
-        medium_14: "font-medium text-[14px] leading-[16px] text-center",
-        regular_12: "font-normal text-[12px] leading-[16px]",
-        regular_10: "font-normal text-[10px] leading-[12px]",
-        medium_12: "font-medium text-[12px] leading-[16px]",
-        bold_12: "font-bold text-[12px] leading-[16px]",
-        medium_8: "font-medium text-[8px] leading-[12px]",
-      },
-    },
-    defaultVariants: {
-      variant: "regular_14",
+const typographyVariants = cva("font-sans tracking-normal align-middle", {
+  variants: {
+    variant: {
+      regular_14: "font-normal text-[14px] leading-[20px]",
+      semibold_24: "font-semibold text-[24px] leading-[28px]",
+      medium_14: "font-medium text-[14px] leading-[16px] text-center",
+      regular_12: "font-normal text-[12px] leading-[16px]",
+      regular_10: "font-normal text-[10px] leading-[12px]",
+      medium_12: "font-medium text-[12px] leading-[16px]",
+      bold_12: "font-bold text-[12px] leading-[16px]",
+      medium_8: "font-medium text-[8px] leading-[12px]",
     },
   },
-);
+  defaultVariants: {
+    variant: "regular_14",
+  },
+});
 
 type TypographyVariant = NonNullable<
   VariantProps<typeof typographyVariants>["variant"]

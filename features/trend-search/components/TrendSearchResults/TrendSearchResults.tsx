@@ -1,11 +1,21 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import { trendingProducts } from "../../data";
 import { TrendProductCard } from "../TrendProductCard/TrendProductCard";
 
 export function TrendSearchResults() {
+  const router = useRouter();
+
   return (
     <div className="grid grid-cols-4 w-fit gap-x-4 gap-y-2 bg-white">
       {trendingProducts.map((product) => (
-        <TrendProductCard key={product.id} {...product} image={product.image} />
+        <TrendProductCard
+          key={product.id}
+          {...product}
+          image={product.image}
+          handleCardClick={() => router.push(`/deep-dive/${product.id}`)}
+        />
       ))}
     </div>
   );

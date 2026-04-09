@@ -50,6 +50,7 @@ interface TrendProductCardProps {
   onLike?: () => void;
   onSpool?: () => void;
   onComment?: () => void;
+  handleCardClick?: () => void;
 }
 
 export function TrendProductCard({
@@ -65,11 +66,15 @@ export function TrendProductCard({
   onLike,
   onSpool,
   onComment,
+  handleCardClick,
 }: TrendProductCardProps) {
   const demandInfo = demand ? demandConfig[demand] : null;
 
   return (
-    <div className="w-67 flex flex-col group cursor-pointer">
+    <div
+      className="w-67 flex flex-col group cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="h-88.75 relative overflow-hidden rounded-[12px]">
         <Image
           src={image}

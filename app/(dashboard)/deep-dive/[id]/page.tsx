@@ -8,6 +8,7 @@ import ProductInfo from "@/features/deep-dive/components/ProductInfo/ProductInfo
 import ProductStats from "@/features/deep-dive/components/ProductStats/ProductStats";
 import MarketPricePosition from "@/features/deep-dive/components/MarketPricePosition/MarketPricePosition";
 import AuraInsights from "@/features/deep-dive/Aurainsights/Aurainsights";
+import { MarketPriceDistribution } from "@/features/deep-dive/MarketPriceDistribution/MarketPriceDistribution";
 
 function DeepDive() {
   return (
@@ -59,6 +60,7 @@ function DeepDive() {
             cheaperOptions={12}
             premiumOptions={8}
           />
+          <MarketPriceDistribution />
         </div>
 
         <DeepDiveResults />

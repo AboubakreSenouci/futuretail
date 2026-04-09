@@ -8,6 +8,9 @@ import {
   LinearScale,
   BarElement,
   Tooltip,
+  type ChartData,
+  type ChartOptions,
+  type TooltipItem,
 } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip);
@@ -36,7 +39,7 @@ export function MarketPriceDistribution({
   buckets = defaultBuckets,
   subtitle = "Most competitors cluster in the €45–60 range",
 }: MarketPriceDistributionProps) {
-  const data = {
+  const data: ChartData<"bar", number[], string> = {
     labels: buckets.map((b) => b.label),
     datasets: [
       {
@@ -50,14 +53,14 @@ export function MarketPriceDistribution({
     ],
   };
 
-  const options = {
+  const options: ChartOptions<"bar"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
         callbacks: {
-          label: (ctx: any) => ` ${ctx.parsed.y} products`,
+          label: (ctx: TooltipItem<"bar">) => ` ${ctx.parsed.y} products`,
         },
       },
     },

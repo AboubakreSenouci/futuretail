@@ -6,6 +6,7 @@ import image5 from "@/public/images/image8.jpg";
 import image6 from "@/public/images/image1.jpg";
 import image7 from "@/public/images/image2.jpg";
 import image8 from "@/public/images/image3.jpg";
+import { DemandLevel } from "./components/TrendProductCard/TrendProductCard";
 
 export const trendingProducts = [
   {
@@ -19,7 +20,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "High Demand",
     image: image1,
-    demand: "high",
+    demand: "high" as DemandLevel,
   },
   {
     id: 2,
@@ -32,7 +33,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "Medium Demand",
     image: image2,
-    demand: "medium",
+    demand: "medium" as DemandLevel,
   },
   {
     id: 3,
@@ -45,7 +46,7 @@ export const trendingProducts = [
     isTrending: true,
     demandLabel: "Low Demand",
     image: image3,
-    demand: "low",
+    demand: "low" as DemandLevel,
   },
   {
     id: 4,
@@ -58,7 +59,7 @@ export const trendingProducts = [
     isTrending: false,
     demandLabel: "High Demand",
     image: image4,
-    demand: "high",
+    demand: "high" as DemandLevel,
   },
   {
     id: 5,
@@ -71,7 +72,7 @@ export const trendingProducts = [
     isTrending: false,
     demandLabel: "Medium Demand",
     image: image5,
-    demand: "medium",
+    demand: "medium" as DemandLevel,
   },
   {
     id: 6,
@@ -84,7 +85,7 @@ export const trendingProducts = [
     isTrending: false,
     demandLabel: "Medium Demand",
     image: image6,
-    demand: "medium",
+    demand: "medium" as DemandLevel,
   },
   {
     id: 7,
@@ -97,7 +98,7 @@ export const trendingProducts = [
     isTrending: false,
     demandLabel: "High Demand",
     image: image7,
-    demand: "high",
+    demand: "high" as DemandLevel,
   },
   {
     id: 8,
@@ -110,6 +111,6 @@ export const trendingProducts = [
     isTrending: false,
     demandLabel: "Low Demand",
     image: image8,
-    demand: "low",
+    demand: "low" as DemandLevel,
   },
 ];

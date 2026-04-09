@@ -10,6 +10,10 @@ import {
   LineElement,
   Filler,
   Tooltip,
+  type ChartData,
+  type ChartOptions,
+  type ScriptableContext,
+  type TooltipItem,
 } from "chart.js";
 
 ChartJS.register(
@@ -53,7 +57,7 @@ export function PriceEvolution({
 }: PriceEvolutionProps) {
   const isNegative = change < 0;
 
-  const data = {
+  const data: ChartData<"line", number[], string> = {
     labels: dataPoints.map((p) => p.label),
     datasets: [
       {
@@ -65,7 +69,7 @@ export function PriceEvolution({
         pointHoverBackgroundColor: "#7F77DD",
         tension: 0.4,
         fill: true,
-        backgroundColor: (ctx: any) => {
+        backgroundColor: (ctx: ScriptableContext<"line">) => {
           const chart = ctx.chart;
           const { ctx: c, chartArea } = chart;
           if (!chartArea) return "transparent";
@@ -83,13 +87,18 @@ export function PriceEvolution({
     ],
   };
 
-  const options = {
+  const options: ChartOptions<"line"> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
-        callbacks: { label: (ctx: any) => ` €${ctx.parsed.y.toFixed(2)}` },
+        callbacks: {
+          label: (ctx: TooltipItem<"line">) => {
+            const y = ctx.parsed.y;
+            return ` €${y !== null ? y.toFixed(2) : "0.00"}`;
+          },
+        },
       },
     },
     scales: {

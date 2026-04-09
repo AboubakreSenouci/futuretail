@@ -3,8 +3,9 @@
 import { cva, type VariantProps } from "class-variance-authority";
 import { Button as HeroButton } from "@heroui/react";
 import { cn } from "@/lib/utils";
+import { ComponentProps, ReactNode } from "react";
+import { ButtonRenderProps } from "react-aria-components";
 
-// ── Variants ────────────────────────────────────────────────────────────────
 const buttonVariants = cva(
   "inline-flex items-center justify-center gap-2 font-medium transition-colors cursor-pointer select-none disabled:opacity-50 disabled:pointer-events-none",
   {
@@ -43,7 +44,6 @@ const buttonVariants = cva(
         sm: "h-8 text-xs px-3",
         md: "h-10 text-sm px-4",
         lg: "h-[46px] text-sm px-5",
-        // icon-only sizes — no px, equal w/h
         icon_sm: "h-7 w-7 p-0 text-xs",
         icon_md: "h-9 w-9 p-0 text-sm",
         icon_lg: "h-11 w-11 p-0 text-base",
@@ -82,22 +82,20 @@ const buttonVariants = cva(
   },
 );
 
-// ── Props ───────────────────────────────────────────────────────────────────
 export interface ButtonProps
   extends
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    Omit<ComponentProps<typeof HeroButton>, "size" | "variant" | "color">,
     VariantProps<typeof buttonVariants> {
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   isActive?: boolean;
   iconOnly?: boolean;
-  /** Single icon to render when iconOnly=true */
   icon?: React.ReactNode;
   as?: React.ElementType;
   href?: string;
+  children?: ReactNode | ((props: ButtonRenderProps) => ReactNode);
 }
 
-// ── Component ───────────────────────────────────────────────────────────────
 export function Button({
   className,
   variant,
@@ -117,23 +115,24 @@ export function Button({
     className,
   );
 
-  // Icon-only mode
+  if (typeof children === "function") {
+    return (
+      <HeroButton className={classes} {...props}>
+        {children}
+      </HeroButton>
+    );
+  }
+
   if (iconOnly) {
     return (
-      <HeroButton
-        as={Tag || "button"}
-        href={href}
-        className={classes}
-        {...props}
-      >
+      <HeroButton className={classes} {...props}>
         {icon ?? children}
       </HeroButton>
     );
   }
 
-  // Normal mode
   return (
-    <HeroButton as={Tag || "button"} href={href} className={classes} {...props}>
+    <HeroButton className={classes} {...props}>
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-2">
           {leftIcon && <span className="shrink-0">{leftIcon}</span>}

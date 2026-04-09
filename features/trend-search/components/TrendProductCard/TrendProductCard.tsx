@@ -10,11 +10,11 @@ import {
   TrendingDown,
   MoveRight,
 } from "lucide-react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Button } from "@/components/ui/Button";
 
-type DemandLevel = "low" | "medium" | "high";
+export type DemandLevel = "low" | "medium" | "high";
 
 const demandConfig: Record<
   DemandLevel,
@@ -38,7 +38,7 @@ const demandConfig: Record<
 };
 
 interface TrendProductCardProps {
-  image: string;
+  image: string | StaticImageData;
   brand: string;
   name: string;
   price: number;

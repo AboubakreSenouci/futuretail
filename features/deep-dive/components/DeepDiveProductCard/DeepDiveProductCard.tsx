@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Chip } from "@heroui/react";
 
 interface DeepDiveProductCardProps {
-  image: string;
+  image: string | StaticImageData;
   brand: string;
   name: string;
   price: number;

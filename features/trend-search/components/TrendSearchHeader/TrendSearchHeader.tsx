@@ -1,9 +1,21 @@
+"use client";
+
 import { Button } from "@/components/ui/Button";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Chip, Tabs } from "@heroui/react";
-import { ChartColumnBig, Funnel, Package, Tag, X } from "lucide-react";
+import {
+  ChartColumnBig,
+  Funnel,
+  Grid3X3,
+  List,
+  Package,
+  Tag,
+  X,
+} from "lucide-react";
+import { useState } from "react";
 
 function TrendSearchHeader() {
+  const [view, setView] = useState<"grid" | "list">("grid");
   return (
     <div className="bg-white border border-border m-0 py-6 px-8 flex flex-col gap-6">
       <div className="">
@@ -31,8 +43,8 @@ function TrendSearchHeader() {
             <Typography variant="medium_14">Clear Results</Typography>
           </Button>
         </div>
-        <div>
-          <Tabs className="w-full max-w-lg text-center">
+        <div className="flex">
+          <Tabs className="pr-4 w-full max-w-lg text-center">
             <Tabs.ListContainer>
               <Tabs.List
                 aria-label="Options"
@@ -63,6 +75,25 @@ function TrendSearchHeader() {
               </Tabs.List>
             </Tabs.ListContainer>
           </Tabs>
+          <div className="flex pl-4 gap-2 border-l border-border">
+            <Button
+              onClick={() => setView("grid")}
+              className={`rounded-[8px] px-3 ${
+                view === "grid" ? "bg-[#ECEEF2]" : "bg-white"
+              }`}
+            >
+              <Grid3X3 size={16} className="text-foreground" />
+            </Button>
+
+            <Button
+              onClick={() => setView("list")}
+              className={`rounded-[8px] px-3 ${
+                view === "list" ? "bg-[#ECEEF2]" : "bg-white"
+              }`}
+            >
+              <List size={16} className="text-foreground" />
+            </Button>
+          </div>
         </div>
       </div>
     </div>

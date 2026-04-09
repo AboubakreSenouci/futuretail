@@ -67,7 +67,7 @@ function AuraInsights({ cheaperOptions, premiumOptions }: AuraInsightsProps) {
       <div className="border-t border-border" />
 
       {/* Options row */}
-      <div className="flex flex-row gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <div className="flex flex-col gap-1 w-full">
           <Typography
             variant="regular_12"

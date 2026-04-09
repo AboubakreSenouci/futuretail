@@ -9,11 +9,11 @@ interface ProductImageProps {
 
 function ProductImage({ src, alt = "Product Image" }: ProductImageProps) {
   return (
-    <div className="relative min-h-145.5 bg-black rounded-[32px] overflow-hidden group cursor-pointer">
+    <div className="group relative aspect-[640/880] overflow-hidden rounded-[24px] bg-black sm:rounded-[32px] cursor-pointer">
       <Image
         src={src}
         alt={alt}
-        className="object-cover w-full max-h-160 transition-transform duration-500 ease-in-out group-hover:scale-110"
+        className="h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110"
       />
 
       <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

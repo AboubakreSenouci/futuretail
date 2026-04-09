@@ -22,7 +22,7 @@ function ProductInfo({
 }: ProductInfoProps) {
   return (
     <div className="flex flex-col bg-white border border-border rounded-[16px] p-4 gap-4">
-      <div className="flex flex-row justify-between w-full items-center">
+      <div className="flex w-full flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <Typography variant="semibold_24" className="text-foreground">
             {name}

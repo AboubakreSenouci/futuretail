@@ -8,7 +8,7 @@ export function TrendSearchResults() {
   const router = useRouter();
 
   return (
-    <div className="grid grid-cols-4 w-fit gap-x-4 gap-y-2 bg-white">
+    <div className="grid grid-cols-1 gap-4 bg-white sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
       {trendingProducts.map((product) => (
         <TrendProductCard
           key={product.id}

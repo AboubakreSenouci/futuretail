@@ -18,7 +18,7 @@ function ProductStats({
 }: ProductStatsProps) {
   return (
     <div className="flex flex-col gap-3">
-      <div className="grid grid-cols-2 gap-3 grid-rows-[auto]">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
           <div className="flex items-center gap-2">
             <Users size={16} className="text-info" />
@@ -49,7 +49,7 @@ function ProductStats({
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 grid-rows-[auto]">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <div className="flex flex-col rounded-[16px] border border-border gap-3 p-4">
           <div className="flex items-center gap-2">
             <ClipboardCheck size={16} className="text-success-positive" />

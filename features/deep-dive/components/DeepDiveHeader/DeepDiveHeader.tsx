@@ -9,7 +9,7 @@ function DeepDiveHeader() {
   const router = useRouter();
 
   return (
-    <div className="flex flex-row py-6 gap-4 px-8 items-center border-b border-border">
+    <div className="flex flex-row items-center gap-4 border-b border-border px-4 py-6 sm:px-6 lg:px-8">
       <Button
         iconOnly
         className="bg-white text-text-strong"

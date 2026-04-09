@@ -106,8 +106,6 @@ export function Button({
   leftIcon,
   rightIcon,
   children,
-  as: Tag,
-  href,
   ...props
 }: ButtonProps) {
   const classes = cn(

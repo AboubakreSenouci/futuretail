@@ -4,9 +4,9 @@ import React from "react";
 
 function TrendSearch() {
   return (
-    <div>
+    <div className="min-w-0">
       <TrendSearchHeader />
-      <div className="pr-11.75 pl-8 pt-8 bg-white">
+      <div className="bg-white px-4 pt-6 pb-8 sm:px-6 lg:px-8 xl:pr-12">
         <TrendSearchResults />
       </div>
     </div>

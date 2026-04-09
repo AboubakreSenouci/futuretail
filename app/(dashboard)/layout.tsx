@@ -9,19 +9,28 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] = useState(true);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
-      <Sidebar isOpen={isOpen} onToggle={() => setIsOpen(!isOpen)} />
-      <Topbar />
+      <Sidebar
+        isDesktopOpen={isDesktopSidebarOpen}
+        isMobileOpen={isMobileSidebarOpen}
+        onDesktopToggle={() => setIsDesktopSidebarOpen((open) => !open)}
+        onMobileClose={() => setIsMobileSidebarOpen(false)}
+      />
+      <Topbar
+        isSidebarOpen={isDesktopSidebarOpen}
+        onMenuClick={() => setIsMobileSidebarOpen(true)}
+      />
 
       <main
-        className={`transition-all duration-300 pt-16.25 min-h-screen ${
-          isOpen ? "ml-60" : "ml-16"
+        className={`min-h-screen pt-[65px] transition-[margin] duration-300 ${
+          isDesktopSidebarOpen ? "md:ml-60" : "md:ml-16"
         }`}
       >
-        <div>{children}</div>
+        <div className="min-w-0">{children}</div>
       </main>
     </div>
   );

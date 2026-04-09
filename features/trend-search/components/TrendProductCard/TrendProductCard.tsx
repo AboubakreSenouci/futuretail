@@ -72,10 +72,10 @@ export function TrendProductCard({
 
   return (
     <div
-      className="w-67 flex flex-col group cursor-pointer"
+      className="group flex w-full min-w-0 cursor-pointer flex-col"
       onClick={handleCardClick}
     >
-      <div className="h-88.75 relative overflow-hidden rounded-[12px]">
+      <div className="relative aspect-[268/355] overflow-hidden rounded-[12px]">
         <Image
           src={image}
           className="rounded-[12px] object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
@@ -91,7 +91,7 @@ export function TrendProductCard({
           </Chip>
         )}
 
-        <div className="absolute top-2 left-[230px] flex flex-col gap-2 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-out">
+        <div className="absolute right-2 top-2 flex flex-col gap-2 opacity-0 translate-x-4 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100">
           <Button
             iconOnly
             size="sm"

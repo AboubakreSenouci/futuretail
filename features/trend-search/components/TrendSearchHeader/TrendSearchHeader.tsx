@@ -17,8 +17,8 @@ import { useState } from "react";
 function TrendSearchHeader() {
   const [view, setView] = useState<"grid" | "list">("grid");
   return (
-    <div className="bg-white border border-border m-0 py-6 px-8 flex flex-col gap-6">
-      <div className="">
+    <div className="m-0 flex flex-col gap-6 border border-border bg-white px-4 py-6 sm:px-6 lg:px-8">
+      <div>
         <Typography variant="semibold_24" className="text-foreground">
           Trend Search
         </Typography>
@@ -27,8 +27,8 @@ function TrendSearchHeader() {
           search
         </Typography>
       </div>
-      <div className=" flex justify-between items-center">
-        <div className="flex items-center gap-2">
+      <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+        <div className="flex flex-wrap items-center gap-2">
           <Button iconOnly className="w-9 h-9 bg-background">
             <Funnel size={16} className="text-primary" />
           </Button>
@@ -43,12 +43,12 @@ function TrendSearchHeader() {
             <Typography variant="medium_14">Clear Results</Typography>
           </Button>
         </div>
-        <div className="flex">
-          <Tabs className="pr-4 w-full max-w-lg text-center">
+        <div className="flex flex-col gap-3 xl:flex-row xl:items-center">
+          <Tabs className="w-full max-w-full xl:pr-4 xl:max-w-lg text-center">
             <Tabs.ListContainer>
               <Tabs.List
                 aria-label="Options"
-                className="w-fit text-muted *:py-1 *:px-2 *:w-fit *:text-sm *:font-normal *:data-[selected=true]:text-primary"
+                className="flex w-full flex-wrap justify-start text-muted *:w-fit *:px-2 *:py-1 *:text-sm *:font-normal *:data-[selected=true]:text-primary"
               >
                 <Tabs.Tab id="daily" className="flex gap-1.5">
                   <Package size={16} />
@@ -75,7 +75,7 @@ function TrendSearchHeader() {
               </Tabs.List>
             </Tabs.ListContainer>
           </Tabs>
-          <div className="flex pl-4 gap-2 border-l border-border">
+          <div className="flex gap-2 xl:border-l xl:border-border xl:pl-4">
             <Button
               onClick={() => setView("grid")}
               className={`rounded-[8px] px-3 ${

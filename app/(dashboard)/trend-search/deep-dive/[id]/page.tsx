@@ -16,8 +16,8 @@ function DeepDive() {
     <div className="bg-white">
       <DeepDiveHeader />
 
-      <div className="flex flex-row pt-8 pl-8 gap-12">
-        <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-8 px-4 py-6 sm:px-6 lg:px-8 2xl:flex-row 2xl:gap-12">
+        <div className="flex min-w-0 flex-1 flex-col gap-6 2xl:max-w-[720px]">
           <ProductImage src={image} alt="Deep Dive" />
 
           <ProductInfo
@@ -50,7 +50,9 @@ function DeepDive() {
           <PriceEvolution />
         </div>
 
-        <DeepDiveResults />
+        <div className="min-w-0 flex-1">
+          <DeepDiveResults />
+        </div>
       </div>
     </div>
   );

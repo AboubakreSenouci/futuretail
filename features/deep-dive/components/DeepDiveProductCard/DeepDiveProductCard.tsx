@@ -27,11 +27,10 @@ export function DeepDiveProductCard({
 }: DeepDiveProductCardProps) {
   return (
     <div
-      className=" min-w-51 flex flex-col group cursor-pointer max-w-[250px] h-fit"
+      className="group flex h-fit w-full min-w-0 max-w-none cursor-pointer flex-col"
       onClick={handleCardClick}
     >
-      {/* Image */}
-      <div className="h-64 relative overflow-hidden rounded-[12px]">
+      <div className="relative aspect-[250/256] overflow-hidden rounded-[12px]">
         <Image
           src={image}
           className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"

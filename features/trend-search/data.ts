@@ -1,0 +1,107 @@
+import image1 from "@/public/images/image4.png";
+import image2 from "@/public/images/image5.jpg";
+import image3 from "@/public/images/image6.jpg";
+import image4 from "@/public/images/image7.jpg";
+import image5 from "@/public/images/image8.jpg";
+import image6 from "@/public/images/image1.jpg";
+import image7 from "@/public/images/image2.jpg";
+import image8 from "@/public/images/image3.jpg";
+
+export const trendingProducts = [
+  {
+    id: 1,
+    brand: "ZARA",
+    name: "Bold Marigold Evening Attire",
+    price: 299.99,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: true,
+    isTrending: true,
+    demandLabel: "High Demand",
+    image: image1,
+  },
+  {
+    id: 2,
+    brand: "NEXT",
+    name: "Sunny Yellow Maxi Dress",
+    price: 330.0,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: false,
+    isTrending: true,
+    demandLabel: "Medium Demand",
+    image: image2,
+  },
+  {
+    id: 3,
+    brand: "THE SET",
+    name: "Radiant Buttercup Pantsuit",
+    price: 265.25,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: false,
+    isTrending: true,
+    demandLabel: "Low Demand",
+    image: image3,
+  },
+  {
+    id: 4,
+    brand: "WE FASHION",
+    name: "Bright Lemon A-Line Dress",
+    price: 299.5,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: true,
+    isTrending: false,
+    demandLabel: "High Demand",
+    image: image4, // 👈 add your image here
+  },
+  {
+    id: 5,
+    brand: "JULES",
+    name: "Golden Sunflower Evening Dress",
+    price: 289.75,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: false,
+    isTrending: false,
+    demandLabel: "Medium Demand",
+    image: image5, // 👈 add your image here
+  },
+  {
+    id: 6,
+    brand: "ZARA",
+    name: "Chic Mustard Wrap Dress",
+    price: 315.5,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: false,
+    isTrending: false,
+    demandLabel: "Medium Demand",
+    image: image6, // 👈 add your image here
+  },
+  {
+    id: 7,
+    brand: "REFORMATION",
+    name: "Vibrant Canary Cocktail Dress",
+    price: 279.0,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: true,
+    isTrending: false,
+    demandLabel: "High Demand",
+    image: image7, // 👈 add your image here
+  },
+  {
+    id: 8,
+    brand: "Reformation",
+    name: "Lively Daffodil Ball Gown",
+    price: 349.99,
+    currency: "€",
+    matchPercentage: 89,
+    isHighDemand: false,
+    isTrending: false,
+    demandLabel: "Low Demand",
+    image: image8, // 👈 add your image here
+  },
+];

@@ -63,7 +63,7 @@
 
 /* ── Base ── */
 body {
-  background-color: var(--background);
+  background-color: var(--color-white);
   color: var(--foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;

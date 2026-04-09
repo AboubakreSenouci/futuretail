@@ -12,7 +12,7 @@ function DeepDiveHeader() {
     <div className="flex flex-row py-6 gap-4 px-8 items-center border-b border-border">
       <Button
         iconOnly
-        className="bg-white text-[#2D2D3D]"
+        className="bg-white text-text-strong"
         onClick={() => router.back()}
       >
         <ArrowLeft size={16} />

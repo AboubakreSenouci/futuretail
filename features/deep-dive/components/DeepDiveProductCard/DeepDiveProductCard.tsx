@@ -54,7 +54,7 @@ export function DeepDiveProductCard({
             {price.toFixed(2)}
           </Typography>
           {discount !== undefined && (
-            <Chip className="bg-[#34C759] py-0.5 px-1">
+            <Chip className="bg-success py-0.5 px-1">
               <Typography variant="medium_12" className="text-white">
                 -€{discount.toFixed(2)}
               </Typography>

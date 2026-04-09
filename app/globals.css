@@ -21,6 +21,45 @@
 
   /* Semantic */
   --success: #34c759; /* Green */
+  --success-dark: #007A55;
+  --success-positive: #009966;
+  --success-soft: #ECFDF5;
+  --success-graph: #86EFAC;
+
+  --danger: #E7000B;
+  --danger-soft: #FFFBEB;
+
+  --warning: #FF9500;
+  --warning-dark: #FE9A00;
+  --warning-soft: #FDE68A;
+  --warning-muted: #FCA5A5;
+  --warning-strong: #BB4D00;
+
+  --info: #794BE7;
+  --info-alt: #9810FA;
+  --info-dark: #155DFC;
+  --info-soft: #EFF6FF;
+  --info-softer: #FAF5FF;
+  --info-chart: #7F77DD;
+  --info-chart-soft: rgba(127, 119, 221, 0.25);
+  --info-chart-fade: rgba(127, 119, 221, 0.02);
+  --info-highlight: #534AB7;
+  --info-muted: #AFA9EC;
+
+  --accent-blue: #2B7FFF;
+
+  --muted-strong: #364153;
+  --muted-secondary: #6A7282;
+  --muted-light: #99A1AF;
+  --muted-alt: #6B7280;
+
+  --surface-soft: #FBF9FC;
+  --surface-muted: #F3F4F6;
+  --text-deep: #101828;
+  --text-strong: #2D2D3D;
+  --border-strong: #888780;
+  --border-strong-soft: rgba(136, 135, 128, 0.15);
+  --white-translucent: rgba(255, 255, 255, 0.2);
 
   /* Radius — matching Figma rounded corners */
   --radius: 0.75rem;
@@ -41,6 +80,45 @@
   --border: #2d2860;
 
   --success: #34c759;
+  --success-dark: #007A55;
+  --success-positive: #009966;
+  --success-soft: #ECFDF5;
+  --success-graph: #86EFAC;
+
+  --danger: #E7000B;
+  --danger-soft: #FFFBEB;
+
+  --warning: #FF9500;
+  --warning-dark: #FE9A00;
+  --warning-soft: #FDE68A;
+  --warning-muted: #FCA5A5;
+  --warning-strong: #BB4D00;
+
+  --info: #794BE7;
+  --info-alt: #9810FA;
+  --info-dark: #155DFC;
+  --info-soft: #EFF6FF;
+  --info-softer: #FAF5FF;
+  --info-chart: #7F77DD;
+  --info-chart-soft: rgba(127, 119, 221, 0.25);
+  --info-chart-fade: rgba(127, 119, 221, 0.02);
+  --info-highlight: #534AB7;
+  --info-muted: #AFA9EC;
+
+  --accent-blue: #2B7FFF;
+
+  --muted-strong: #364153;
+  --muted-secondary: #6A7282;
+  --muted-light: #99A1AF;
+  --muted-alt: #6B7280;
+
+  --surface-soft: #FBF9FC;
+  --surface-muted: #F3F4F6;
+  --text-deep: #101828;
+  --text-strong: #2D2D3D;
+  --border-strong: #888780;
+  --border-strong-soft: rgba(136, 135, 128, 0.15);
+  --white-translucent: rgba(255, 255, 255, 0.2);
 }
 
 /* ── Make custom colors available as Tailwind utilities ── */
@@ -53,6 +131,38 @@
   --color-surface: var(--surface);
   --color-border: var(--border);
   --color-success: var(--success);
+  --color-success-dark: var(--success-dark);
+  --color-success-positive: var(--success-positive);
+  --color-success-soft: var(--success-soft);
+  --color-success-graph: var(--success-graph);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-dark: var(--warning-dark);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-muted: var(--warning-muted);
+  --color-warning-strong: var(--warning-strong);
+  --color-info: var(--info);
+  --color-info-alt: var(--info-alt);
+  --color-info-dark: var(--info-dark);
+  --color-info-soft: var(--info-soft);
+  --color-info-softer: var(--info-softer);
+  --color-info-chart: var(--info-chart);
+  --color-info-chart-soft: var(--info-chart-soft);
+  --color-info-chart-fade: var(--info-chart-fade);
+  --color-info-highlight: var(--info-highlight);
+  --color-info-muted: var(--info-muted);
+  --color-accent-blue: var(--accent-blue);
+  --color-muted-strong: var(--muted-strong);
+  --color-muted-secondary: var(--muted-secondary);
+  --color-muted-light: var(--muted-light);
+  --color-muted-alt: var(--muted-alt);
+  --color-surface-soft: var(--surface-soft);
+  --color-surface-muted: var(--surface-muted);
+  --color-text-deep: var(--text-deep);
+  --color-text-strong: var(--text-strong);
+  --color-border-strong: var(--border-strong);
+  --color-border-strong-soft: var(--border-strong-soft);
   --color-white: #ffffff;
 }
 

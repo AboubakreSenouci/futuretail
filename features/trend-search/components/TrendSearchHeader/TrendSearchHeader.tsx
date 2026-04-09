@@ -55,7 +55,7 @@ function TrendSearchHeader() {
                 <Tabs.Tab id="bi-weekly" className="flex gap-1.5">
                   <Tag size={16} />
                   <Typography variant="medium_14">Brand Stats</Typography>
-                  <Chip className="bg-[#FBF9FC] text-muted">
+                  <Chip className="bg-surface-soft text-muted">
                     <Typography variant="medium_12">2</Typography>
                   </Chip>
                   <Tabs.Indicator className="bg-white" />

@@ -23,7 +23,7 @@ function ProductImage({ src, alt = "Product Image" }: ProductImageProps) {
           iconOnly
           className="bg-white rounded-full shadow-md w-12 h-12"
         >
-          <Search size={16} className="text-[#101828]" />
+          <Search size={16} className="text-text-deep" />
         </Button>
       </div>
     </div>

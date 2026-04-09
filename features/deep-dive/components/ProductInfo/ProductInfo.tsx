@@ -39,14 +39,14 @@ function ProductInfo({
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <Chip className="bg-[#ECFDF5] px-2.5 py-1 gap-2">
-          <Typography variant="regular_14" className="text-[#007A55]">
+        <Chip className="bg-success-soft px-2.5 py-1 gap-2">
+          <Typography variant="regular_14" className="text-success-dark">
             {status}
           </Typography>
         </Chip>
         {tags.map((tag) => (
-          <Chip key={tag} className="bg-[#F3F4F6] px-2.5 py-1">
-            <Typography variant="regular_14" className="text-[#364153]">
+          <Chip key={tag} className="bg-surface-muted px-2.5 py-1">
+            <Typography variant="regular_14" className="text-muted-strong">
               {tag}
             </Typography>
           </Chip>

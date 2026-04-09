@@ -22,18 +22,18 @@ const demandConfig: Record<
 > = {
   low: {
     label: "Low Demand",
-    color: "text-[#FF3B30]",
-    icon: <TrendingDown size={10} className="text-[#FF3B30]" />,
+    color: "text-danger",
+    icon: <TrendingDown size={10} className="text-danger" />,
   },
   medium: {
     label: "Medium Demand",
-    color: "text-[#FF9500]",
-    icon: <MoveRight size={10} className="text-[#FF9500]" />,
+    color: "text-warning",
+    icon: <MoveRight size={10} className="text-warning" />,
   },
   high: {
     label: "High Demand",
-    color: "text-[#34C759]",
-    icon: <TrendingUp size={10} className="text-[#34C759]" />,
+    color: "text-success",
+    icon: <TrendingUp size={10} className="text-success" />,
   },
 };
 

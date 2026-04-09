@@ -11,8 +11,8 @@ const buttonVariants = cva(
     variants: {
       variant: {
         primary: [
-          "bg-gradient-to-r from-[#715DE3] to-[#8A6FE8] text-white",
-          "hover:from-[#6D55F5] hover:to-[#927CF8]",
+          "bg-gradient-to-r from-brand-start to-brand-end text-white",
+          "hover:from-brand-hover-start hover:to-brand-hover-end",
           "rounded-[8px] px-4",
         ],
         link: [

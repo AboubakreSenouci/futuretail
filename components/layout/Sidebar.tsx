@@ -49,10 +49,10 @@ export function Sidebar({ isOpen = true, onToggle }: SidebarProps) {
           rightIcon={
             isOpen ? (
               <div className="flex gap-1 items-center">
-                <div className="bg-[#FFFFFF33] px-1 py-0.5 rounded-[4px]">
+                <div className="bg-[color:var(--white-translucent)] px-1 py-0.5 rounded-[4px]">
                   ⌘
                 </div>
-                <div className="bg-[#FFFFFF33] px-1.5 py-0.5 rounded-[4px]">
+                <div className="bg-[color:var(--white-translucent)] px-1.5 py-0.5 rounded-[4px]">
                   K
                 </div>
               </div>

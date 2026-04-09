@@ -27,7 +27,7 @@ function MarketPricePosition({
     <div className="flex flex-col rounded-[16px] border border-border p-4 gap-4 bg-white">
       {/* Header */}
       <div className="flex items-center gap-2">
-        <Target size={20} className="text-[#794BE7]" />
+        <Target size={20} className="text-info" />
         <Typography variant="semibold_24" className="text-foreground">
           Market Price Position
         </Typography>
@@ -37,7 +37,7 @@ function MarketPricePosition({
         {/* ── Labels row: Lowest | Median (absolute) | Highest ── */}
         <div className="relative h-4 w-full">
           <span className="absolute left-0">
-            <Typography variant="regular_12" className="text-[#6A7282]">
+            <Typography variant="regular_12" className="text-muted-secondary">
               Lowest
             </Typography>
           </span>
@@ -49,13 +49,13 @@ function MarketPricePosition({
               left: `clamp(2rem, ${medianPercent}%, calc(100% - 2rem))`,
             }}
           >
-            <Typography variant="regular_12" className="text-[#6A7282]">
+            <Typography variant="regular_12" className="text-muted-secondary">
               Median
             </Typography>
           </span>
 
           <span className="absolute right-0">
-            <Typography variant="regular_12" className="text-[#6A7282]">
+            <Typography variant="regular_12" className="text-muted-secondary">
               Highest
             </Typography>
           </span>
@@ -68,13 +68,13 @@ function MarketPricePosition({
             className="absolute inset-0 rounded-full"
             style={{
               background:
-                "linear-gradient(to right, #86EFAC, #FDE68A, #FCA5A5)",
+                "linear-gradient(to right, var(--success-graph), var(--warning-soft), var(--warning-muted))",
             }}
           />
 
           {/* Median divider — taller than the track, centred vertically */}
           <div
-            className="absolute w-[2px] bg-[#6B7280] z-10"
+            className="absolute w-[2px] bg-muted-alt z-10"
             style={{
               left: `${medianPercent}%`,
               top: "50%",
@@ -85,7 +85,7 @@ function MarketPricePosition({
 
           {/* Current price dot */}
           <div
-            className="absolute w-[18px] h-[18px] rounded-full bg-[#794BE7] border-[3px] border-white shadow-md z-20"
+            className="absolute w-[18px] h-[18px] rounded-full bg-info border-[3px] border-white shadow-md z-20"
             style={{
               left: `${currentPercent}%`,
               top: "50%",
@@ -97,7 +97,7 @@ function MarketPricePosition({
         {/* ── Price labels row ── */}
         <div className="relative h-7 w-full mt-0.5">
           <span className="absolute left-0">
-            <Typography variant="semibold_24" className="text-[#007A55]">
+            <Typography variant="semibold_24" className="text-success-dark">
               {currency}{lowest}
             </Typography>
           </span>
@@ -109,13 +109,13 @@ function MarketPricePosition({
               left: `clamp(3rem, ${medianPercent}%, calc(100% - 3rem))`,
             }}
           >
-            <Typography variant="semibold_24" className="text-[#101828]">
+            <Typography variant="semibold_24" className="text-foreground">
               {currency}{median}
             </Typography>
           </span>
 
           <span className="absolute right-0">
-            <Typography variant="semibold_24" className="text-[#EF4444]">
+            <Typography variant="semibold_24" className="text-danger">
               {currency}{highest}
             </Typography>
           </span>
@@ -123,9 +123,9 @@ function MarketPricePosition({
       </div>
 
       {/* Status badge */}
-      <div className="flex items-center gap-2 bg-[#ECFDF5] rounded-[12px] px-4 py-3">
-        <TrendingUp size={16} className="text-[#007A55]" />
-        <Typography variant="regular_14" className="text-[#007A55]">
+      <div className="flex items-center gap-2 bg-success-soft rounded-[12px] px-4 py-3">
+        <TrendingUp size={16} className="text-success-dark" />
+        <Typography variant="regular_14" className="text-success-dark">
           {isAboveMedian
             ? "Positioned above median price"
             : "Positioned below median price"}

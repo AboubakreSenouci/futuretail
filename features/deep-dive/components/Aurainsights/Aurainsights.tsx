@@ -8,16 +8,12 @@ interface InsightItem {
 }
 
 interface AuraInsightsProps {
-  insights: InsightItem[];
-  cheaperOptions: number;
-  premiumOptions: number;
+  insights?: InsightItem[];
+  cheaperOptions?: number;
+  premiumOptions?: number;
 }
 
-function AuraInsights({
-  insights,
-  cheaperOptions,
-  premiumOptions,
-}: AuraInsightsProps) {
+function AuraInsights({ cheaperOptions, premiumOptions }: AuraInsightsProps) {
   return (
     <div className="flex flex-col rounded-[16px] border border-border p-4 gap-4 bg-white">
       {/* Header */}

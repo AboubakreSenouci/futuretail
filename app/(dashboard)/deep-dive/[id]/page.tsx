@@ -7,8 +7,8 @@ import ProductImage from "@/features/deep-dive/components/ProductImage/ProductIm
 import ProductInfo from "@/features/deep-dive/components/ProductInfo/ProductInfo";
 import ProductStats from "@/features/deep-dive/components/ProductStats/ProductStats";
 import MarketPricePosition from "@/features/deep-dive/components/MarketPricePosition/MarketPricePosition";
-import AuraInsights from "@/features/deep-dive/Aurainsights/Aurainsights";
-import { MarketPriceDistribution } from "@/features/deep-dive/MarketPriceDistribution/MarketPriceDistribution";
+import AuraInsights from "@/features/deep-dive/components/Aurainsights/Aurainsights";
+import { MarketPriceDistribution } from "@/features/deep-dive/components/MarketPriceDistribution/MarketPriceDistribution";
 import { PriceEvolution } from "@/features/deep-dive/components/PriceEvolution/PriceEvolution";
 
 function DeepDive() {
@@ -45,22 +45,7 @@ function DeepDive() {
             current={71.23}
             currency="€"
           />
-          <AuraInsights
-            insights={[
-              {
-                dotColor: "#007A55",
-                bgColor: "#ECFDF5",
-                text: "This product is priced below the market average.",
-              },
-              {
-                dotColor: "#EF4444",
-                bgColor: "#FEE2E2",
-                text: "There are several premium options available in the market.",
-              },
-            ]}
-            cheaperOptions={12}
-            premiumOptions={8}
-          />
+          <AuraInsights cheaperOptions={12} premiumOptions={8} />
           <MarketPriceDistribution />
           <PriceEvolution />
         </div>

@@ -4,7 +4,7 @@ import { DeepDiveProductCard } from "../DeepDiveProductCard/DeepDiveProductCard"
 
 function DeepDiveResults() {
   return (
-    <div className="grid grid-cols-3 gap-2.5 w-fit">
+    <div className="grid grid-cols-3 gap-2.5 items-start self-start">
       {deepDiveProducts.map((product) => (
         <DeepDiveProductCard
           key={product.id}

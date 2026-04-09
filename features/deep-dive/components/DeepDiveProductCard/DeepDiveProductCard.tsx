@@ -27,7 +27,7 @@ export function DeepDiveProductCard({
 }: DeepDiveProductCardProps) {
   return (
     <div
-      className="w-full min-w-51 flex flex-col group cursor-pointer max-w-[250px]"
+      className=" min-w-51 flex flex-col group cursor-pointer max-w-[250px] h-fit"
       onClick={handleCardClick}
     >
       {/* Image */}

@@ -1,24 +1,5 @@
 import { Typography } from "@/components/ui/Typography/Typography";
-
-interface DashboardStat {
-  label: string;
-  value: string;
-  note: string;
-}
-
-interface DashboardSection {
-  title: string;
-  description: string;
-  items: string[];
-}
-
-interface DashboardPlaceholderPageProps {
-  title: string;
-  description: string;
-  eyebrow?: string;
-  stats: DashboardStat[];
-  sections: DashboardSection[];
-}
+import type { DashboardPlaceholderPageData } from "./types";
 
 export function DashboardPlaceholderPage({
   title,
@@ -26,7 +7,7 @@ export function DashboardPlaceholderPage({
   eyebrow,
   stats,
   sections,
-}: DashboardPlaceholderPageProps) {
+}: DashboardPlaceholderPageData) {
   return (
     <div className="flex flex-col h-screen bg-white">
       <div className="border border-border bg-white px-4 py-6 sm:px-6 lg:px-8">

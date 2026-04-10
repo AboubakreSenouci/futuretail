@@ -45,7 +45,7 @@ export function MarketPriceDistribution({
       {
         data: buckets.map((b) => b.count),
         backgroundColor: buckets.map((b) =>
-          b.isHighlighted ? "#534AB7" : "#AFA9EC",
+          b.isHighlighted ? "#794BE7" : "#E0D4F7",
         ),
         borderRadius: 4,
         borderSkipped: false,

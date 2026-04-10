@@ -1,6 +1,6 @@
 "use client";
 
-import { Activity, TrendingDown } from "lucide-react";
+import { ChartSpline, TrendingDown } from "lucide-react";
 import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -15,6 +15,7 @@ import {
   type ScriptableContext,
   type TooltipItem,
 } from "chart.js";
+import { Typography } from "@/components/ui/Typography/Typography";
 
 ChartJS.register(
   CategoryScale,
@@ -119,12 +120,12 @@ export function PriceEvolution({
     <div className="bg-white border border-border rounded-[12px] p-5">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Activity size={16} className="text-primary" />
+          <ChartSpline size={16} className="text-primary" />
           <span className="text-[15px] font-medium text-foreground">
             Price evolution
           </span>
         </div>
-        <span className="text-[12px] text-muted bg-secondary border border-border rounded-full px-3 py-0.5">
+        <span className="text-[12px] text-muted-secondary bg-surface-muted border border-border rounded-full px-3 py-0.5">
           {periodLabel}
         </span>
       </div>
@@ -134,11 +135,14 @@ export function PriceEvolution({
       </div>
 
       <div className="flex items-center justify-between mt-3">
-        <div className="flex items-center gap-1.5 text-[13px] font-medium text-[#1D9E75]">
-          <TrendingDown size={14} />
+        <Typography
+          variant="regular_14"
+          className="flex items-center gap-1.5 text-muted-strong"
+        >
+          <TrendingDown size={14} color="#00BC7D" />
           {isNegative ? "−" : "+"}€{Math.abs(change).toFixed(2)} (
           {changePercent.toFixed(1)}%)
-        </div>
+        </Typography>
         <span className="text-[12px] text-muted">{sinceLabel}</span>
       </div>
     </div>

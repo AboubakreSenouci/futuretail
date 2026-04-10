@@ -1,11 +1,16 @@
-import React from "react";
-import { deepDiveProducts } from "../../data";
+"use client";
+
+import type { DeepDiveProduct } from "../../types";
 import { DeepDiveProductCard } from "../DeepDiveProductCard/DeepDiveProductCard";
 
-function DeepDiveResults() {
+interface DeepDiveResultsProps {
+  products: DeepDiveProduct[];
+}
+
+function DeepDiveResults({ products }: DeepDiveResultsProps) {
   return (
     <div className="grid grid-cols-1 items-start gap-4 self-start sm:grid-cols-2 xl:grid-cols-3">
-      {deepDiveProducts.map((product) => (
+      {products.map((product) => (
         <DeepDiveProductCard
           key={product.id}
           {...product}

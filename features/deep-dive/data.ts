@@ -13,8 +13,14 @@ import image12 from "@/public/images/deep12.jpg";
 import image13 from "@/public/images/deep13.jpg";
 import image14 from "@/public/images/deep14.jpg";
 import image15 from "@/public/images/deep15.jpg";
+import type {
+  AuraInsightsData,
+  DeepDivePageData,
+  DeepDiveProduct,
+  MainProduct,
+} from "./types";
 
-export const deepDiveProducts = [
+export const deepDiveProducts: DeepDiveProduct[] = [
   {
     id: "basic-crew-neck-sweater",
     brand: "Nordstrom",
@@ -197,3 +203,85 @@ export const deepDiveProducts = [
     discount: 5,
   },
 ];
+
+export const mainProduct: MainProduct = {
+  id: 1,
+  src: image6,
+  alt: "Main Product",
+};
+
+export const defaultDeepDivePageData: DeepDivePageData = {
+  image: {
+    src: image4,
+    alt: "Neon Yellow Summer Dress",
+  },
+  productInfo: {
+    name: "Neon Yellow Summer Dress",
+    brand: "ZARA",
+    price: "€71.23",
+    status: "In Stock",
+    tags: ["Women's Fashion", "Summer Dress"],
+    sku: "ZR-SUM-2024-001",
+    updatedAt: "Mar 11, 2026",
+  },
+  productStats: {
+    popularity: 68,
+    matchScore: 97,
+    reviews: 324,
+    ranking: 2,
+    rankingTotal: 12,
+  },
+  marketPricePosition: {
+    lowest: 29.99,
+    median: 55,
+    highest: 125,
+    current: 71.23,
+    currency: "€",
+    positionLabel: "Positioned above median price",
+  },
+  auraInsights: {
+    cheaperOptions: 12,
+    premiumOptions: 8,
+  },
+  marketPriceDistribution: {
+    buckets: [
+      { label: "€25", count: 2 },
+      { label: "€35", count: 3 },
+      { label: "€45", count: 4 },
+      { label: "€60", count: 2, isHighlighted: true },
+      { label: "€75", count: 1 },
+      { label: "€90+", count: 2 },
+    ],
+    subtitle: "Most competitors cluster in the €45–60 range",
+  },
+  priceEvolution: {
+    dataPoints: [
+      { label: "Mar\n4", value: 6.4 },
+      { label: "Mar\n5", value: 5.2 },
+      { label: "Mar\n6", value: 3.8 },
+      { label: "Mar\n7", value: 2.9 },
+      { label: "Mar\n8", value: 1.9 },
+      { label: "Mar\n9", value: 2.2 },
+      { label: "Mar\n10", value: 2.64 },
+    ],
+    change: -3.76,
+    changePercent: 5,
+    sinceLabel: "Since Mar 4",
+    periodLabel: "Last 7 days",
+  },
+  relatedProducts: deepDiveProducts,
+};
+
+export const deepDivePageDataById: Record<string, DeepDivePageData> = {
+  "1": defaultDeepDivePageData,
+};
+
+export const auraInsights: AuraInsightsData = {
+  id: 1,
+  expensivePercentage: 16,
+  marketAverage: 61.5,
+  competitorsWithLowerPrice: 10,
+  priceQuartile: "upper-mid price quartile",
+  cheaperOptions: 12,
+  premiumOptions: 5,
+};

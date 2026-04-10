@@ -14,9 +14,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Button } from "@/components/ui/Button";
-import { TrendSearchViewMode } from "../../types";
-
-export type DemandLevel = "low" | "medium" | "high";
+import { DemandLevel, TrendSearchViewMode } from "../../types";
 
 const demandConfig: Record<
   DemandLevel,

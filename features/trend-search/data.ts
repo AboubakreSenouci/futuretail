@@ -6,7 +6,7 @@ import image5 from "@/public/images/image8.jpg";
 import image6 from "@/public/images/image1.jpg";
 import image7 from "@/public/images/image2.jpg";
 import image8 from "@/public/images/image3.jpg";
-import { DemandLevel } from "./components/TrendProductCard/TrendProductCard";
+import { DemandLevel } from "./types";
 
 export const trendingProducts = [
   {

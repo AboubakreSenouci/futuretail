@@ -1,10 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Topbar } from "@/components/layout/Topbar";
-
-const COOKIE_KEY = "futuretail:desktop-sidebar-open";
+import { useDashboardLayout } from "@/hooks/useDashboardLayout";
 
 export default function DashboardLayoutClient({
   children,
@@ -13,17 +11,14 @@ export default function DashboardLayoutClient({
   children: React.ReactNode;
   initialSidebarOpen: boolean;
 }) {
-  const [isDesktopSidebarOpen, setIsDesktopSidebarOpen] =
-    useState(initialSidebarOpen);
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-
-  const toggleDesktopSidebar = () => {
-    setIsDesktopSidebarOpen((prev) => {
-      const next = !prev;
-      document.cookie = `${COOKIE_KEY}=${next}; path=/; max-age=31536000`;
-      return next;
-    });
-  };
+  const {
+    isDesktopSidebarOpen,
+    isMobileSidebarOpen,
+    toggleDesktopSidebar,
+    openMobileSidebar,
+    closeMobileSidebar,
+    mainClassName,
+  } = useDashboardLayout({ initialSidebarOpen });
 
   return (
     <div className="min-h-screen bg-background">
@@ -31,17 +26,13 @@ export default function DashboardLayoutClient({
         isDesktopOpen={isDesktopSidebarOpen}
         isMobileOpen={isMobileSidebarOpen}
         onDesktopToggle={toggleDesktopSidebar}
-        onMobileClose={() => setIsMobileSidebarOpen(false)}
+        onMobileClose={closeMobileSidebar}
       />
       <Topbar
         isSidebarOpen={isDesktopSidebarOpen}
-        onMenuClick={() => setIsMobileSidebarOpen(true)}
+        onMenuClick={openMobileSidebar}
       />
-      <main
-        className={`min-h-screen pt-[65px] transition-[margin] duration-300 ${
-          isDesktopSidebarOpen ? "md:ml-60" : "md:ml-16"
-        }`}
-      >
+      <main className={mainClassName}>
         <div className="min-w-0">{children}</div>
       </main>
     </div>

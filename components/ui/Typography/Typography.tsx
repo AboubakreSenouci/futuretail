@@ -11,6 +11,7 @@ const typographyVariants = cva("font-sans tracking-normal align-middle", {
       regular_10: "font-normal text-[10px] leading-[12px]",
       medium_12: "font-medium text-[12px] leading-[16px]",
       bold_12: "font-bold text-[12px] leading-[16px]",
+      bold_14: "font-bold text-[14px] leading-[16px]",
       medium_8: "font-medium text-[8px] leading-[12px]",
     },
   },
@@ -34,6 +35,7 @@ const defaultTags: Record<
   regular_10: "span",
   medium_12: "p",
   bold_12: "p",
+  bold_14: "p",
   medium_8: "span",
 };
 

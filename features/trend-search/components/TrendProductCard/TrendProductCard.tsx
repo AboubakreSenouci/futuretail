@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { Chip } from "@heroui/react";
 import {
   Search,
@@ -13,6 +14,7 @@ import {
 import Image, { StaticImageData } from "next/image";
 import { Typography } from "@/components/ui/Typography/Typography";
 import { Button } from "@/components/ui/Button";
+import { TrendSearchViewMode } from "../../types";
 
 export type DemandLevel = "low" | "medium" | "high";
 
@@ -51,6 +53,7 @@ interface TrendProductCardProps {
   onSpool?: () => void;
   onComment?: () => void;
   handleCardClick?: () => void;
+  view?: TrendSearchViewMode;
 }
 
 export function TrendProductCard({
@@ -67,18 +70,35 @@ export function TrendProductCard({
   onSpool,
   onComment,
   handleCardClick,
+  view = "grid",
 }: TrendProductCardProps) {
   const demandInfo = demand ? demandConfig[demand] : null;
+  const isListView = view === "list";
 
   return (
     <div
-      className="group flex w-full min-w-0 cursor-pointer flex-col"
+      className={cn(
+        "group flex w-full min-w-0 cursor-pointer",
+        isListView
+          ? "flex-col overflow-hidden rounded-[12px] border border-border bg-white sm:flex-row"
+          : "flex-col",
+      )}
       onClick={handleCardClick}
     >
-      <div className="relative aspect-[268/355] overflow-hidden rounded-[12px]">
+      <div
+        className={cn(
+          "relative overflow-hidden",
+          isListView
+            ? "aspect-[4/3] rounded-t-[12px] sm:h-44 sm:w-56 sm:shrink-0 sm:rounded-l-[12px] sm:rounded-tr-none"
+            : "aspect-[268/355] rounded-[12px]",
+        )}
+      >
         <Image
           src={image}
-          className="rounded-[12px] object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-110"
+          className={cn(
+            "h-full w-full object-cover transition-transform duration-500 ease-in-out group-hover:scale-110",
+            isListView ? "" : "rounded-[12px]",
+          )}
           alt={`${brand} - ${name}`}
           fill
         />
@@ -127,14 +147,25 @@ export function TrendProductCard({
         </div>
       </div>
 
-      <div className="flex flex-col gap-2 p-3">
+      <div
+        className={cn(
+          "flex flex-col gap-2",
+          isListView ? "flex-1 justify-center p-4 sm:p-5" : "p-3",
+        )}
+      >
         <Typography variant="regular_10" className="text-muted">
           {brand}
         </Typography>
-        <Typography variant="medium_12" className="text-foreground">
+        <Typography
+          variant={isListView ? "medium_14" : "medium_12"}
+          className="text-foreground self-start"
+        >
           {name}
         </Typography>
-        <Typography variant="bold_12" className="text-primary-dark">
+        <Typography
+          variant={isListView ? "bold_14" : "bold_12"}
+          className="text-primary-dark"
+        >
           {currency}
           {price.toFixed(2)}
         </Typography>

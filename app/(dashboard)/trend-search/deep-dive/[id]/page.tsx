@@ -6,10 +6,10 @@ import DeepDiveHeader from "@/features/deep-dive/components/DeepDiveHeader/DeepD
 import ProductImage from "@/features/deep-dive/components/ProductImage/ProductImage";
 import ProductInfo from "@/features/deep-dive/components/ProductInfo/ProductInfo";
 import ProductStats from "@/features/deep-dive/components/ProductStats/ProductStats";
-import MarketPricePosition from "@/features/deep-dive/components/MarketPricePosition/MarketPricePosition";
 import AuraInsights from "@/features/deep-dive/components/Aurainsights/Aurainsights";
 import { MarketPriceDistribution } from "@/features/deep-dive/components/MarketPriceDistribution/MarketPriceDistribution";
 import { PriceEvolution } from "@/features/deep-dive/components/PriceEvolution/PriceEvolution";
+import { MarketPricePosition } from "@/features/deep-dive/components/MarketPricePosition/MarketPricePosition";
 
 function DeepDive() {
   return (

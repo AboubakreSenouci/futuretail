@@ -12,10 +12,14 @@ import {
   Tag,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { TrendSearchViewMode } from "../../types";
 
-function TrendSearchHeader() {
-  const [view, setView] = useState<"grid" | "list">("grid");
+interface TrendSearchHeaderProps {
+  view: TrendSearchViewMode;
+  onViewChange: (view: TrendSearchViewMode) => void;
+}
+
+function TrendSearchHeader({ view, onViewChange }: TrendSearchHeaderProps) {
   return (
     <div className="m-0 flex flex-col gap-6 border border-border bg-white px-4 py-6 sm:px-6 lg:px-8">
       <div>
@@ -77,7 +81,9 @@ function TrendSearchHeader() {
           </Tabs>
           <div className="flex gap-2 xl:border-l xl:border-border xl:pl-4">
             <Button
-              onClick={() => setView("grid")}
+              aria-label="Show results as grid"
+              aria-pressed={view === "grid"}
+              onClick={() => onViewChange("grid")}
               className={`rounded-[8px] px-3 ${
                 view === "grid" ? "bg-[#ECEEF2]" : "bg-white"
               }`}
@@ -86,7 +92,9 @@ function TrendSearchHeader() {
             </Button>
 
             <Button
-              onClick={() => setView("list")}
+              aria-label="Show results as list"
+              aria-pressed={view === "list"}
+              onClick={() => onViewChange("list")}
               className={`rounded-[8px] px-3 ${
                 view === "list" ? "bg-[#ECEEF2]" : "bg-white"
               }`}

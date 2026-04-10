@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { ReactQueryProvider } from "@/components/providers/ReactQueryProvider";
+import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 
 import "./globals.css";
 

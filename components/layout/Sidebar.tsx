@@ -37,7 +37,7 @@ export function Sidebar({
     <>
       <div
         className={`fixed inset-0 z-30 bg-foreground/20 md:hidden ${
-          isMounted ? "transition-opacity duration-300" : "" // ✅ no transition on first render
+          isMounted ? "transition-opacity duration-300" : ""
         } ${
           isMobileOpen
             ? "pointer-events-auto opacity-100"
@@ -48,7 +48,7 @@ export function Sidebar({
 
       <aside
         className={`fixed top-0 left-0 z-40 flex h-screen max-w-[calc(100vw-1rem)] flex-col border-r border-border bg-white md:z-30 ${
-          isMounted ? "transition-all duration-300 ease-in-out" : "" // ✅ key fix
+          isMounted ? "transition-all duration-300 ease-in-out" : ""
         } ${isDesktopOpen ? "md:w-60" : "md:w-16"} ${
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         } w-72 md:translate-x-0`}
@@ -92,7 +92,7 @@ export function Sidebar({
             }
             rightIcon={
               isDesktopOpen ? (
-                <div className="hidden items-center gap-1 md:flex">
+                <div className="hidden items-center gap-0.75 md:flex">
                   <div className="bg-[color:var(--white-translucent)] px-1 py-0.5 rounded-[4px]">
                     ⌘
                   </div>

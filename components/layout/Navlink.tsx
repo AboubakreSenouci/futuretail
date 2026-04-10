@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronRight, ChevronDown } from "lucide-react";
-import { Button } from "@/components/ui/Button";
 import { Typography } from "../ui/Typography/Typography";
+import { cn } from "@/lib/utils";
 
 export interface NavItem {
   label: string;
@@ -21,53 +21,69 @@ interface NavLinkProps {
 
 export function NavLink({ item, isCollapsed = false }: NavLinkProps) {
   const pathname = usePathname();
-  const isActive = pathname.startsWith(item.href);
   const hasChildren = !!item.children?.length;
-  const [open, setOpen] = useState(isActive);
+  const hasActiveChild = !!item.children?.some((child) => pathname === child.href);
+  const isActive = hasChildren ? false : pathname.startsWith(item.href);
+  const [open, setOpen] = useState(hasActiveChild);
 
   return (
     <div>
-      <Button
-        variant="link"
-        size="md"
-        isActive={isActive}
-        leftIcon={item.icon}
-        className="rounded-[8px] w-full flex justify-start gap-2"
-        rightIcon={
-          !isCollapsed && hasChildren ? (
-            <span className="text-muted">
-              {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
-            </span>
-          ) : undefined
-        }
-        onClick={
-          hasChildren && !isCollapsed
-            ? (e) => {
-                e.preventDefault();
-                setOpen((o) => !o);
-              }
-            : undefined
-        }
-        {...(!hasChildren && !isCollapsed ? { as: Link, href: item.href } : {})}
-      >
-        {!isCollapsed && <Typography variant="regular_14">{item.label}</Typography>}
-      </Button>
+      {hasChildren && !isCollapsed ? (
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className={cn(
+            "flex h-10 w-full items-center gap-2 rounded-[8px] px-3 text-foreground transition-colors hover:bg-primary-light hover:text-primary",
+          )}
+          aria-expanded={open}
+          aria-label={open ? `Collapse ${item.label}` : `Expand ${item.label}`}
+        >
+          <span className="shrink-0">{item.icon}</span>
+          <Typography variant="regular_14">{item.label}</Typography>
+          <span className="ml-auto shrink-0 text-muted">
+            {open ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+          </span>
+        </button>
+      ) : hasChildren ? (
+        <button
+          type="button"
+          onClick={() => setOpen((value) => !value)}
+          className="flex h-10 w-full items-center justify-center rounded-[8px] text-foreground transition-colors hover:bg-primary-light hover:text-primary"
+          aria-expanded={open}
+          aria-label={open ? `Collapse ${item.label}` : `Expand ${item.label}`}
+        >
+          <span className="shrink-0">{item.icon}</span>
+        </button>
+      ) : (
+        <Link
+          href={item.href}
+          className={cn(
+            "flex h-10 items-center rounded-[8px] text-foreground transition-colors hover:bg-primary-light hover:text-primary",
+            isCollapsed ? "justify-center px-0" : "gap-2 px-3",
+            isActive && "bg-primary-light font-semibold text-primary",
+          )}
+        >
+          <span className="shrink-0">{item.icon}</span>
+          {!isCollapsed && (
+            <Typography variant="regular_14">{item.label}</Typography>
+          )}
+        </Link>
+      )}
 
-      {/* Children links */}
       {hasChildren && open && !isCollapsed && (
         <div className="ml-8 mt-1 flex flex-col gap-0.5">
           {item.children!.map((child) => (
-            <Button
+            <Link
               key={child.href}
-              variant="link"
-              size="sm"
-              isActive={pathname === child.href}
-              as={Link}
               href={child.href}
-              className="rounded-[8px]"
+              className={cn(
+                "flex h-8 items-center rounded-[8px] px-3 text-foreground transition-colors hover:bg-primary-light hover:text-primary",
+                pathname === child.href &&
+                  "bg-primary-light font-semibold text-primary",
+              )}
             >
               <Typography variant="regular_14">{child.label}</Typography>
-            </Button>
+            </Link>
           ))}
         </div>
       )}

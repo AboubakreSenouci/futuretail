@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react"; // ✅ add these
+import { useEffect, useState } from "react";
 import { MessageCirclePlus, PanelLeft, X } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 import { Button } from "@/components/ui/Button";
 import { NavLink } from "./Navlink";
@@ -24,11 +25,10 @@ export function Sidebar({
   onDesktopToggle,
   onMobileClose,
 }: SidebarProps) {
-  // ✅ Disable transition on first render to prevent flash
   const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    // Small timeout ensures the correct state is applied before enabling transitions
     const timer = setTimeout(() => setIsMounted(true), 50);
     return () => clearTimeout(timer);
   }, []);
@@ -115,7 +115,7 @@ export function Sidebar({
         <nav className="flex flex-1 flex-col gap-1 overflow-y-auto px-2 py-1">
           {NAV_ITEMS.map((item) => (
             <NavLink
-              key={item.href}
+              key={`${item.href}-${pathname}`}
               item={item}
               isCollapsed={!isDesktopOpen && !isMobileOpen}
             />

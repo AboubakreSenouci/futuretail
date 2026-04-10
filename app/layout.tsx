@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={openSauceTwo.variable}>
       <head>
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
@@ -46,7 +46,7 @@ export default function RootLayout({
               } catch(e) {}
             `,
           }}
-        />
+        /> */}
       </head>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
